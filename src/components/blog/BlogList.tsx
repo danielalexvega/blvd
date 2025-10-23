@@ -31,28 +31,45 @@ const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
     );
   }
 
-  const blogItems = blogs.map((blog, index) => (
-    <div key={index}>
-      <PageSection key={index} color="bg-white">
-        <div className="max-w-6xl mx-auto">
-          <BlogListItem
-            key={index}
-            imageSrc={blog.imageSrc}
-            title={blog.title}
-            description={blog.description}
-            readMoreLink={blog.readMoreLink}
-            className="pt-[98px] pb-[150px]"
-            itemId={blog.itemId}
-          />
-        </div>
-      </PageSection>
-      <Divider key={`divider-${index}`} />
+  // Group blogs into alternating rows of 3 and 2
+  const groupedBlogs = [];
+  let currentIndex = 0;
+  let groupIndex = 0;
+
+  while (currentIndex < blogs.length) {
+    const groupSize = groupIndex % 2 === 0 ? 3 : 2; // Alternate between 3 and 2
+    const group = blogs.slice(currentIndex, currentIndex + groupSize);
+    groupedBlogs.push(group);
+    currentIndex += groupSize;
+    groupIndex++;
+  }
+
+  const renderBlogGroup = (group: Blog[], groupIndex: number) => (
+    <div key={groupIndex} className="mb-16">
+      <div className={`grid gap-8 max-w-8xl mx-auto px-4 ${
+        group.length === 3 
+          ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+          : 'grid-cols-1 md:grid-cols-2'
+      }`}>
+        {group.map((blog, index) => (
+          <div key={`${groupIndex}-${index}`} className="flex flex-col">
+            <BlogListItem
+              imageSrc={blog.imageSrc}
+              title={blog.title}
+              description={blog.description}
+              readMoreLink={blog.readMoreLink}
+              className="h-full"
+              itemId={blog.itemId}
+            />
+          </div>
+        ))}
+      </div>
     </div>
-  ));
+  );
 
   return (
     <div className="flex flex-col">
-      {blogItems}
+      {groupedBlogs.map((group, index) => renderBlogGroup(group, index))}
     </div>
   );
 };

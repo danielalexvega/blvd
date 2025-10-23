@@ -126,10 +126,10 @@ const BlogCarousel: React.FC<BlogCarouselProps> = ({ blogs }) => {
           {/* Read Article Link */}
           <Link
             to={`/blog/${currentBlog.readMoreLink}`}
-            className="inline-flex items-center text-black hover:text-amber-700 font-medium transition-colors duration-200"
+            className="group inline-flex items-center text-black hover:text-grey font-medium transition-colors duration-200 border-b border-black hover:group w-max mt-auto"
           >
             Read Article
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-4 h-4 transition-all duration-200 group-hover:ml-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
