@@ -1,13 +1,11 @@
 import React from "react";
 import Link from "../Link";
-import { PortableText } from "@portabletext/react";
-import { PortableTextObject } from "@kontent-ai/rich-text-resolver";
 import { createItemSmartLink } from "../../utils/smartlink";
 
 type BlogListItemProps = Readonly<{
   imageSrc?: string;
   title: string;
-  description: PortableTextObject[];
+  description: string;
   readMoreLink: string;
   className?: string;
   itemId: string;
@@ -39,7 +37,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
           {title}
         </h2>
         <div className="text-body-lg text-gray mb-4 max-w-3xl line-clamp-4">
-          <PortableText value={description} />
+          {description}
         </div>
         <Link href={readMoreLink} text="Read more" />
       </div>

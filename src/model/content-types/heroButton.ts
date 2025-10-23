@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -20,7 +20,7 @@ import type { Page } from "./index.ts";
 /**
  * Hero Button
  *
- * Id: 7060665b-10a0-4ba1-b3bf-0529a18d1993
+ * Id: 1b4af418-989a-45c9-b8cf-5bdbc3281f8e
  * Codename: hero_button
  */
 export type HeroButton = CoreContentType<
@@ -32,7 +32,7 @@ export type HeroButton = CoreContentType<
      * Type: text
      * Required: false
      * Codename: button_text
-     * Id: be5d52ed-b1c9-43f6-b236-588ffce1cbf1
+     * Id: 8dd45e4a-b02b-405b-a75c-622f3e231d34
      */
     readonly button_text: Elements.TextElement;
     /**
@@ -41,7 +41,7 @@ export type HeroButton = CoreContentType<
      * Type: modular_content
      * Required: false
      * Codename: page
-     * Id: f035e355-a071-4b85-8b38-5ced04e77cae
+     * Id: 0dec747b-c9d2-423f-96c2-23dc1ef8bd44
      */
     readonly page: Elements.LinkedItemsElement<Page>;
   },
@@ -56,7 +56,7 @@ export type HeroButtonElementCodenames = "button_text" | "page";
 /**
  * Type guard for Hero Button
  *
- * Id: 7060665b-10a0-4ba1-b3bf-0529a18d1993
+ * Id: 1b4af418-989a-45c9-b8cf-5bdbc3281f8e
  * Codename: hero_button
  */
 export function isHeroButton(item: CoreContentType | undefined | null): item is HeroButton {

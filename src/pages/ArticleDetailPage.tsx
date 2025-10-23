@@ -18,7 +18,6 @@ import PageContent from "../components/PageContent";
 const HeroImageAuthorCard: React.FC<{
   prefix?: string;
   firstName: string;
-  lastName: string;
   suffix?: string;
   publishDate?: string;
   image: {
@@ -27,7 +26,7 @@ const HeroImageAuthorCard: React.FC<{
   };
   codename: string;
   language: LanguageCodenames;
-}> = ({ prefix, firstName, lastName, suffix, publishDate, image, codename, language }) => {
+}> = ({ prefix, firstName, suffix, publishDate, image, codename, language }) => {
   const [searchParams] = useSearchParams();
   const isPreview = searchParams.get("preview") === "true";
 
@@ -42,7 +41,7 @@ const HeroImageAuthorCard: React.FC<{
             className="text-white text-body-md font-bold hover:text-burgundy underline"
           >
             {prefix && <span>{prefix}</span>}
-            {firstName} {lastName}
+            {firstName}
             {suffix && <span>, {suffix}</span>}
           </NavLink>
         </div>
@@ -147,7 +146,7 @@ const ArticleDetailPage: React.FC = () => {
     : "";
 
   const author = article.elements.author.linkedItems[0];
-  const authorName = author ? `${author.elements.first_name?.value || ""} ${author.elements.last_name?.value || ""}`.trim() : "";
+  const authorName = author ? `${author.elements.first_name?.value || ""}` : "";
 
   return (
     <div className="flex flex-col gap-12">
@@ -166,7 +165,6 @@ const ArticleDetailPage: React.FC = () => {
             {author && (
               <HeroImageAuthorCard
                 firstName={author.elements.first_name?.value || ""}
-                lastName={author.elements.last_name?.value || ""}
                 publishDate={formattedDate}
                 image={{
                   url: author.elements.image?.value[0]?.url || "",
@@ -224,7 +222,6 @@ const ArticleDetailPage: React.FC = () => {
             <div className="text-body-lg text-body-color">
               <PersonCard
                 firstName={author.elements.first_name?.value || ""}
-                lastName={author.elements.last_name?.value || ""}
                 jobTitle={author.elements.job_title?.value || ""}
                 image={{
                   url: author.elements.image?.value[0]?.url || "",

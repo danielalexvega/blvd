@@ -6,16 +6,16 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
 import type { CoreContentType } from "../system/index.ts";
-import type { HeroButton, Video, Disclaimer, CallToAction, Event, Article, Page } from "./index.ts";
+import type { Video, Disclaimer, CallToAction, Event, Article, Page } from "./index.ts";
 
 /**
  * Landing Page
@@ -44,15 +44,6 @@ export type LandingPage = CoreContentType<
      * Id: 1f3be25d-1bcf-4e59-9003-14490f82f338
      */
     readonly subheadline: Elements.TextElement;
-    /**
-     * Hero Buttons
-     *
-     * Type: modular_content
-     * Required: false
-     * Codename: hero_links
-     * Id: bb9a36b5-865f-4d75-a66b-d2e0e2ca09fe
-     */
-    readonly hero_links: Elements.LinkedItemsElement<HeroButton>;
     /**
      * Hero Image
      *
@@ -99,7 +90,6 @@ export type LandingPage = CoreContentType<
 export type LandingPageElementCodenames =
   | "headline"
   | "subheadline"
-  | "hero_links"
   | "hero_image"
   | "body_copy"
   | "featured_content"

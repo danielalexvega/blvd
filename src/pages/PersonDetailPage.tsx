@@ -90,7 +90,7 @@ const PersonDetailPage: React.FC = () => {
             {...createItemSmartLink(person.system.id)}
             {...createElementSmartLink("first_name")}
             >
-              {person.elements.first_name?.value} {person.elements.last_name?.value}
+              {person.elements.first_name?.value}
             </h1>
             {person.elements.job_title?.value && (
               <p className="text-body-xl text-body-color"

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams, Link } from "react-router-dom";
 import { createClient } from "../utils/client";
 import { useAppContext } from "../context/AppContext";
 import { BlogPost, LanguageCodenames } from "../model";
@@ -80,37 +80,84 @@ const BlogDetail: React.FC = () => {
     return <div className="flex-grow" />;
   }
 
-  const createTag = (tag: string) => (
-    <div className="w-fit text-small border tracking-wider font-[700] text-grey border-azure px-4 py-2 rounded-lg uppercase">
-      {tag}
-    </div>
-  );
-
   return (
-    <div className="container flex flex-col gap-12 px-3">
-      <div className="flex flex-row items-center pt-[104px] pb-[160px]">
-        <div className="flex flex-col flex-1 gap-6 ">
-          {createTag("Blog Post")}
-          <h1 className="text-heading-1 text-heading-1-color mb-6 max-w-[12ch]"
-          {...createItemSmartLink(blogPost.system.id)}
-          {...createElementSmartLink("title")}
-          >
-            {blogPost.elements.title?.value}
-          </h1>
-        </div>
-        <div className="flex flex-col flex-1">
-          <img
-            width={670}
-            height={440}
-            src={blogPost.elements.image?.value[0]?.url}
-            alt={blogPost.elements.image?.value[0]?.description ?? ""}
-            className="rounded-lg"
-          />
+    <div className="flex flex-col px-16">
+      {/* Header Section with Grid */}
+      <div
+        className="px-4 pt-16"
+        style={{
+          gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
+          gap: '0'
+        }}
+      >
+        <div className="grid" style={{ gridTemplateColumns: 'repeat(12, minmax(0, 1fr))', gap: '0' }}>
+          {/* Back to Blog Link */}
+          <div className="col-span-5">
+            <Link
+              to="/blog"
+              className="text-black hover:text-gray-700 transition-colors duration-200 font-libre"
+              style={{ fontSize: '14px', fontWeight: '500' }}
+            >
+              ← Boulevard Blog
+            </Link>
+          </div>
+
+          {/* Tags and Title Section */}
+          <div className="col-span-6 space-y-1">
+            {/* Blog Post Tags */}
+            {blogPost.elements.blog_post_tags?.value && blogPost.elements.blog_post_tags.value.length > 0 && (
+              <p
+                className="uppercase text-gray-600"
+                style={{ fontSize: '16px', fontWeight: '500' }}
+                {...createItemSmartLink(blogPost.system.id)}
+                {...createElementSmartLink("blog_post_tags")}
+              >
+                {blogPost.elements.blog_post_tags.value.map(tag => tag.name).join(' • ')}
+              </p>
+            )}
+
+            {/* Industry Tags */}
+            {blogPost.elements.industry_tags?.value && blogPost.elements.industry_tags.value.length > 0 && (
+              <p
+                className="uppercase text-gray-600"
+                style={{ fontSize: '16px', fontWeight: '500' }}
+                {...createItemSmartLink(blogPost.system.id)}
+                {...createElementSmartLink("industry_tags")}
+              >
+                {blogPost.elements.industry_tags.value.map(tag => tag.name).join(' • ')}
+              </p>
+            )}
+
+            {/* Title */}
+            <h2
+              className="text-black font-semibold font-libre"
+              style={{ fontSize: '48px', fontWeight: '500', lineHeight: '50px' }}
+              {...createItemSmartLink(blogPost.system.id)}
+              {...createElementSmartLink("title")}
+            >
+              {blogPost.elements.title?.value}
+            </h2>
+          </div>
         </div>
       </div>
-      <div className="rich-text-body max-w-3xl mx-auto flex flex-col gap-5"
-      {...createItemSmartLink(blogPost.system.id)}
-      {...createElementSmartLink("body")}>
+
+      {/* Hero Image Section */}
+      <div className="w-full" style={{ marginTop: '5rem', marginBottom: '5rem' }}>
+        <img
+          width="100%"
+          height="auto"
+          src={blogPost.elements.image?.value[0]?.url}
+          alt={blogPost.elements.image?.value[0]?.description ?? ""}
+          className="w-full h-auto object-cover"
+          {...createItemSmartLink(blogPost.system.id)}
+          {...createElementSmartLink("image")}
+        />
+      </div>
+
+      {/* Content Section */}
+      <div className="rich-text-body max-w-4xl mx-auto flex flex-col px-4 mr-[15%]"
+        {...createItemSmartLink(blogPost.system.id)}
+        {...createElementSmartLink("body")}>
         <PortableText
           value={transformToPortableText(blogPost.elements.body?.value)}
           components={defaultPortableRichTextResolvers}

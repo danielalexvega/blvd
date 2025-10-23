@@ -6,20 +6,21 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
+import type { ArticleType, GeneralHealthcareTopics } from "../taxonomies/index.ts";
 import type { CoreContentType } from "../system/index.ts";
 import type { Metadata } from "../content-type-snippets/index.ts";
 import type { Person } from "./index.ts";
 
 /**
- * 🖊️ Article
+ * Article
  *
  * Id: d622fc28-5202-511a-9dbf-a3ee363b6c7c
  * Codename: article
@@ -82,6 +83,24 @@ export type Article = CoreContentType<
      */
     readonly body_copy: Elements.RichTextElement<CoreContentType>;
     /**
+     * Article Type
+     *
+     * Type: taxonomy
+     * Required: false
+     * Codename: article_type
+     * Id: 2f84cb44-a29b-4f09-88f5-847d0f0b82a2
+     */
+    readonly article_type: Elements.TaxonomyElement<ArticleType, "article_type">;
+    /**
+     * General Healthcare Topics
+     *
+     * Type: taxonomy
+     * Required: false
+     * Codename: topics
+     * Id: 945fa79f-fc67-480b-8e20-b777cce76ab5
+     */
+    readonly topics: Elements.TaxonomyElement<GeneralHealthcareTopics, "topics">;
+    /**
      * Related Articles
      *
      * Type: modular_content
@@ -104,7 +123,7 @@ export type Article = CoreContentType<
 >;
 
 /**
- * Type representing all available element codenames for 🖊️ Article
+ * Type representing all available element codenames for Article
  */
 export type ArticleElementCodenames =
   | "title"
@@ -113,6 +132,8 @@ export type ArticleElementCodenames =
   | "author"
   | "image"
   | "body_copy"
+  | "article_type"
+  | "topics"
   | "related_articles"
   | "metadata__title"
   | "metadata__keywords"
@@ -120,7 +141,7 @@ export type ArticleElementCodenames =
   | "url_slug";
 
 /**
- * Type guard for 🖊️ Article
+ * Type guard for Article
  *
  * Id: d622fc28-5202-511a-9dbf-a3ee363b6c7c
  * Codename: article

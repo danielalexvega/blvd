@@ -2,12 +2,12 @@ import React from "react";
 import BlogListItem from "./BlogListItem";
 import Divider from "../Divider";
 import PageSection from "../PageSection";
-import { PortableTextObject } from "@kontent-ai/rich-text-resolver";
 
+// Updated to use summary string instead of rich text
 type Blog = Readonly<{
   imageSrc?: string;
   title: string;
-  description: PortableTextObject[];
+  description: string;
   readMoreLink: string;
   itemId: string;
 }>;
@@ -17,6 +17,20 @@ type BlogListProps = Readonly<{
 }>;
 
 const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
+  // Debug logging
+  console.log('BlogList Debug:', {
+    blogsCount: blogs.length,
+    blogs: blogs
+  });
+
+  if (blogs.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-gray-600">No blog posts found.</p>
+      </div>
+    );
+  }
+
   const blogItems = blogs.map((blog, index) => (
     <div key={index}>
       <PageSection key={index} color="bg-white">

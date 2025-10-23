@@ -63,7 +63,7 @@ export default {
     },
       fontFamily: {
         sans: ['"Inter Variable"', 'Inter', 'Arial', 'sans-serif'],
-        libre: ['"Abhaya Libre"', "Arial"]
+        libre: ['"DM Sans"', "Arial"]
       }
     },
     container: {

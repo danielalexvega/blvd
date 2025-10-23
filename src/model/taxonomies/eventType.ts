@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -17,29 +17,15 @@
  * All taxonomy codename values for Event Type
  *
  * Codename: event_type
- * Id: 7af235fc-b9f5-476b-a383-9e3eaa494bd9
+ * Id: 54519543-3e87-541d-a060-1246d721db5e
  */
-export const eventTypeValues = [
-  "free",
-  "talks___poetry",
-  "visual_arts",
-  "workshops___classes",
-  "ballet___dance",
-  "broadway___musical_theater",
-  "live_music",
-  "opera",
-  "film",
-  "family",
-  "classical",
-  "comedy",
-  "concert",
-] as const;
+export const eventTypeValues = ["seminar", "webinar", "workshop"] as const;
 
 /**
  * Type representing Event Type taxonomy
  *
  * Codename: event_type
- * Id: 7af235fc-b9f5-476b-a383-9e3eaa494bd9
+ * Id: 54519543-3e87-541d-a060-1246d721db5e
  */
 export type EventType = (typeof eventTypeValues)[number];
 
@@ -47,7 +33,7 @@ export type EventType = (typeof eventTypeValues)[number];
  * Type guard for Event Type
  *
  * Codename: event_type
- * Id: 7af235fc-b9f5-476b-a383-9e3eaa494bd9
+ * Id: 54519543-3e87-541d-a060-1246d721db5e
  */
 export function isEventType(value: string | undefined | null): value is EventType {
   return typeof value === "string" && (eventTypeValues as readonly string[]).includes(value);

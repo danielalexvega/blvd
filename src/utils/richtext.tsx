@@ -3,8 +3,8 @@ import Link from "../components/Link";
 
 export const defaultPortableRichTextResolvers = {
   list: {
-    bullet: ({ children }) => <ul className="text-xl text-gray-700 list-disc ml-8 py-5">{children}</ul>,
-    number: ({ children }) => <ol className="text-xl text-gray-700 list-decimal ml-8 py-5">{children}</ol>,
+    bullet: ({ children }) => <ul className="text-xl text-black list-disc ml-8 py-5">{children}</ul>,
+    number: ({ children }) => <ol className="text-xl text-black list-decimal ml-8 py-5">{children}</ol>,
   },
   types: {
     image: ({ value }) => (
@@ -14,7 +14,7 @@ export const defaultPortableRichTextResolvers = {
           alt={value.asset.alt}
           width={900}
           height={600}
-          className="w-[900px] h-[600px] object-cover rounded-md"
+          className="w-[900px] h-[600px] object-contain rounded-md"
         />
         <figcaption className="text-body-lg text-grey-light">
           {value.asset.alt}

@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -26,7 +26,7 @@ export type Person = CoreContentType<
   PersonElementCodenames,
   {
     /**
-     * First Name
+     * Name
      *
      * Type: text
      * Required: true
@@ -34,15 +34,6 @@ export type Person = CoreContentType<
      * Id: 75123355-ea53-5577-9c1a-36d3747bc70d
      */
     readonly first_name: Elements.TextElement;
-    /**
-     * Last Name
-     *
-     * Type: text
-     * Required: true
-     * Codename: last_name
-     * Id: 7cf10c8c-a512-5610-ae33-31031ab78cde
-     */
-    readonly last_name: Elements.TextElement;
     /**
      * Biography
      *
@@ -56,7 +47,7 @@ export type Person = CoreContentType<
      * Image
      *
      * Type: asset
-     * Required: true
+     * Required: false
      * Codename: image
      * Id: 891ea65d-96ab-5530-a363-0cb6109554f2
      */
@@ -70,15 +61,6 @@ export type Person = CoreContentType<
      * Id: e63e755f-29ce-5c45-9289-365bd7e47adf
      */
     readonly job_title: Elements.TextElement;
-    /**
-     * Chair
-     *
-     * Type: text
-     * Required: false
-     * Codename: chair
-     * Id: 39445f53-8d62-4c53-a365-b325dbc4fe01
-     */
-    readonly chair: Elements.TextElement;
     /**
      * Phone
      *
@@ -113,16 +95,7 @@ export type Person = CoreContentType<
 /**
  * Type representing all available element codenames for Person
  */
-export type PersonElementCodenames =
-  | "first_name"
-  | "last_name"
-  | "biography"
-  | "image"
-  | "job_title"
-  | "chair"
-  | "phone"
-  | "email"
-  | "website";
+export type PersonElementCodenames = "first_name" | "biography" | "image" | "job_title" | "phone" | "email" | "website";
 
 /**
  * Type guard for Person

@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -22,132 +22,130 @@ export type LanguageCodenames = "de-DE" | "default" | "es-ES";
  * Type representing all content types
  */
 export type ContentTypeCodenames =
-  | "_performance"
   | "article"
   | "blog_post"
-  | "call_to_action__copy_"
   | "call_to_action"
   | "disclaimer"
   | "event"
+  | "fact_sectional"
+  | "feature"
   | "hero_button"
-  | "landing_page__copy_"
   | "landing_page"
-  | "location"
+  | "page__copy_"
   | "page"
+  | "percentage_fact"
   | "person"
-  | "series"
-  | "sponsor"
+  | "service"
+  | "success_story"
   | "video";
 
 /**
  * Type representing all collections
  */
 export type CollectionCodenames =
-  | "_high_school_for_creative_and_performing_arts"
-  | "_pittsburgh_ballet_theatre"
-  | "_pittsburgh_opera"
+  | "academic_content"
+  | "boulevard"
   | "default"
   | "marketing_resources"
   | "operations"
-  | "pittsburgh_clo"
-  | "pittsburgh_cultural_trust"
-  | "pittsburgh_public_theater"
-  | "pittsburgh_symphony_orchestra";
+  | "patient_resources";
 
 /**
  * Type representing all workflows
  */
-export type WorkflowCodenames =
-  | "_symphony_event_workflow_collection__"
-  | "default"
-  | "event_workflow"
-  | "opera_event_workflow"
-  | "pittsburgh_ballet_theatre_event";
+export type WorkflowCodenames = "academic_resources" | "biographies" | "default" | "patient_resources";
 
 /**
  * Type representing all taxonomies
  */
-export type TaxonomyCodenames = "blog_type" | "event_type" | "location" | "organization";
+export type TaxonomyCodenames =
+  | "article_type"
+  | "blog_post_tags"
+  | "event_topic"
+  | "event_type"
+  | "general_healthcare_topics"
+  | "industry_tags"
+  | "medical_specialties";
 
 /**
  * Type representing all worksflow steps across all workflows
  */
 export type WorkflowStepCodenames =
   | "archived"
-  | "copy_review_dfb5b46"
   | "copy_review"
-  | "draft_2ca84ed"
-  | "draft_61df217"
-  | "draft_78e5d6f"
-  | "draft_c0bc7fe"
+  | "draft_97d445e"
+  | "draft_a8b162c"
+  | "draft_b242d4d"
   | "draft"
+  | "legal_review"
+  | "marketing_review"
+  | "medical_review"
+  | "peer_review"
   | "published"
-  | "review_5056e1d"
-  | "review"
-  | "scheduled";
+  | "reviewed_1778942"
+  | "reviewed"
+  | "scheduled"
+  | "staff_member_review"
+  | "translation";
 
 /**
  * Type representing all element codenames across all content types
  */
 export type ElementCodenames =
-  | "accessibility"
+  | "article_type"
   | "author"
   | "autoplay"
   | "biography"
-  | "blog_type"
+  | "blog_post_tags"
   | "body_copy"
   | "body"
   | "button_label"
   | "button_link"
   | "button_text"
   | "caption"
-  | "chair"
-  | "city"
+  | "card_image"
+  | "case_study_image"
+  | "case_study_pdf"
   | "description"
+  | "disclaimer"
   | "email"
   | "end_date"
+  | "event_topic"
   | "event_type"
-  | "event"
-  | "events"
+  | "feature_body"
+  | "feature_title"
   | "featured_content"
-  | "featured_events_in_hero"
   | "first_name"
   | "guidelines"
   | "headline"
   | "hero_image"
-  | "hero_links"
   | "image_position"
   | "image"
+  | "industry_tags"
   | "introduction"
   | "job_title"
-  | "last_name"
-  | "location_tag"
-  | "location"
+  | "label"
+  | "medical_specialties"
   | "metadata__description"
   | "metadata__keywords"
   | "metadata__title"
   | "metadata"
   | "name"
   | "page"
-  | "performances"
-  | "performer"
+  | "percentage_facts"
+  | "percentage_value"
   | "phone"
-  | "photo_credits"
-  | "program"
   | "publish_date"
   | "related_articles"
-  | "sponsor_logo"
-  | "sponsors"
   | "start_date"
-  | "state"
-  | "street_address"
   | "subheadline"
   | "subpages"
-  | "time_and_date"
+  | "summary"
+  | "team"
   | "title"
+  | "topics"
   | "type"
   | "url_slug"
   | "url"
   | "video_link"
-  | "website"
-  | "zipcode";
+  | "website";

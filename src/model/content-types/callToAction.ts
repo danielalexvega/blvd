@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -75,7 +75,7 @@ export type CallToAction = CoreContentType<
      * Button Link
      *
      * Type: modular_content
-     * Required: false
+     * Required: true
      * Codename: button_link
      * Id: 1872121b-6166-451e-8c26-9c78f2cfba47
      */

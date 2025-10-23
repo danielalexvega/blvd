@@ -127,7 +127,6 @@ const LandingPage: FC = () => {
             headline: landingPage.elements.headline,
             subheadline: landingPage.elements.subheadline,
             heroImage: landingPage.elements.hero_image,
-            heroButtons: landingPage.elements.hero_links?.linkedItems || [],
             itemId: landingPage.system.id
           }}
         />

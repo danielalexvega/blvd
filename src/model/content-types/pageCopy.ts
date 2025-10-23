@@ -19,13 +19,13 @@ import type { Metadata } from "../content-type-snippets/index.ts";
 import type { Video, Disclaimer, CallToAction } from "./index.ts";
 
 /**
- * Page
+ * Customer Success Stories Page
  *
- * Id: 4bdd2f8f-3acc-4744-b005-8f629948ec13
- * Codename: page
+ * Id: 670df230-4109-458f-93ab-7fb5d167addb
+ * Codename: page__copy_
  */
-export type Page = CoreContentType<
-  PageElementCodenames,
+export type CustomerSuccessStoriesPage = CoreContentType<
+  CustomerSuccessStoriesPageElementCodenames,
   {
     /**
      * Headline
@@ -33,7 +33,7 @@ export type Page = CoreContentType<
      * Type: text
      * Required: true
      * Codename: headline
-     * Id: 05721c93-8dcb-4daa-81b6-df690efaef61
+     * Id: 47f7f606-5eec-4959-af4a-6756e1c56bab
      */
     readonly headline: Elements.TextElement;
     /**
@@ -42,25 +42,16 @@ export type Page = CoreContentType<
      * Type: text
      * Required: true
      * Codename: subheadline
-     * Id: 719d23e7-d174-498f-b0aa-46640791b5fb
+     * Id: 66f22984-6adb-4552-b3da-cb3a566fb5dd
      */
     readonly subheadline: Elements.TextElement;
-    /**
-     * Hero Image
-     *
-     * Type: asset
-     * Required: false
-     * Codename: hero_image
-     * Id: 35be9ac2-8024-410e-ab79-78709a9695f1
-     */
-    readonly hero_image: Elements.AssetsElement;
     /**
      * Body
      *
      * Type: rich_text
      * Required: false
      * Codename: body
-     * Id: c5ac868e-97fe-419a-a256-635af1fb70aa
+     * Id: 3c0456b5-9609-4450-9f5a-66c3e8cdb34c
      */
     readonly body: Elements.RichTextElement<Video | Disclaimer | CallToAction>;
     /**
@@ -69,42 +60,33 @@ export type Page = CoreContentType<
      * Type: url_slug
      * Required: true
      * Codename: url
-     * Id: 31e8a7c4-b997-4112-adb9-c11730348a87
+     * Id: de66126f-63a9-4c26-9966-cffc30cae92a
      */
     readonly url: Elements.UrlSlugElement;
-    /**
-     * Subpages
-     *
-     * Type: subpages
-     * Required: false
-     * Codename: subpages
-     * Id: 17024df9-8457-45ed-ba2d-a2235a72dd06
-     */
-    readonly subpages: Elements.LinkedItemsElement<CoreContentType>;
   } & Metadata,
-  "page"
+  "page__copy_"
 >;
 
 /**
- * Type representing all available element codenames for Page
+ * Type representing all available element codenames for Customer Success Stories Page
  */
-export type PageElementCodenames =
+export type CustomerSuccessStoriesPageElementCodenames =
   | "headline"
   | "subheadline"
-  | "hero_image"
   | "body"
   | "metadata__title"
   | "metadata__keywords"
   | "metadata__description"
-  | "url"
-  | "subpages";
+  | "url";
 
 /**
- * Type guard for Page
+ * Type guard for Customer Success Stories Page
  *
- * Id: 4bdd2f8f-3acc-4744-b005-8f629948ec13
- * Codename: page
+ * Id: 670df230-4109-458f-93ab-7fb5d167addb
+ * Codename: page__copy_
  */
-export function isPage(item: CoreContentType | undefined | null): item is Page {
-  return item?.system?.type === "page";
+export function isCustomerSuccessStoriesPage(
+  item: CoreContentType | undefined | null,
+): item is CustomerSuccessStoriesPage {
+  return item?.system?.type === "page__copy_";
 }

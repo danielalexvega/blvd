@@ -6,21 +6,19 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
 import type { CoreContentType } from "../system/index.ts";
-import type { EventType, TaxonomyLocation } from "../taxonomies/index.ts";
-import type { ContentLocation as Location, Performance, Person, Sponsor } from "./index.ts";
-import type { Metadata } from "../content-type-snippets/index.ts";
+import type { EventType, EventTopic } from "../taxonomies/index.ts";
 
 /**
- * 🎫 Event
+ * Event
  *
  * Id: e97907ba-c5ae-53e6-bcb6-091bc89da3fa
  * Codename: event
@@ -65,6 +63,24 @@ export type Event = CoreContentType<
      */
     readonly end_date: Elements.DateTimeElement;
     /**
+     * Event Type
+     *
+     * Type: taxonomy
+     * Required: true
+     * Codename: event_type
+     * Id: aa177aeb-9cd0-5a3a-a6b6-ca055fe2cae3
+     */
+    readonly event_type: Elements.TaxonomyElement<EventType, "event_type">;
+    /**
+     * Event Topic
+     *
+     * Type: taxonomy
+     * Required: true
+     * Codename: event_topic
+     * Id: 0da8a57d-a1d5-5b1e-9b6e-6d28dc1a6caa
+     */
+    readonly event_topic: Elements.TaxonomyElement<EventTopic, "event_topic">;
+    /**
      * Description
      *
      * Type: rich_text
@@ -73,116 +89,24 @@ export type Event = CoreContentType<
      * Id: 2a7a8e84-274c-5339-afd2-4865b643fbb2
      */
     readonly description: Elements.RichTextElement<CoreContentType>;
-    /**
-     * Location
-     *
-     * Type: modular_content
-     * Required: false
-     * Codename: location
-     * Id: 0a0d4313-d720-4071-b5a3-9e43041111c5
-     */
-    readonly location: Elements.LinkedItemsElement<Location>;
-    /**
-     * Accessibility
-     *
-     * Type: multiple_choice
-     * Required: false
-     * Codename: accessibility
-     * Id: be8e8ab6-309a-43bb-8c7a-a2831e0edbe6
-     */
-    readonly accessibility: Elements.MultipleChoiceElement<"large_print" | "wheelchair_seating" | "sensory_friendly">;
-    /**
-     * Event Type
-     *
-     * Type: taxonomy
-     * Required: false
-     * Codename: event_type
-     * Id: 038955c0-436a-4eb6-90d2-a7eccdc26a70
-     */
-    readonly event_type: Elements.TaxonomyElement<EventType, "event_type">;
-    /**
-     * Location
-     *
-     * Type: taxonomy
-     * Required: false
-     * Codename: location_tag
-     * Id: 90d61383-320d-4d52-8664-93777ea68b02
-     */
-    readonly location_tag: Elements.TaxonomyElement<TaxonomyLocation, "location_tag">;
-    /**
-     * Performances
-     *
-     * Type: modular_content
-     * Required: false
-     * Codename: performances
-     * Id: b82a4764-da71-46fb-bd50-42be00278af5
-     */
-    readonly performances: Elements.LinkedItemsElement<Performance>;
-    /**
-     * Performer
-     *
-     * Type: modular_content
-     * Required: false
-     * Codename: performer
-     * Id: f9434ea6-8bcb-4754-9b0a-6cbb38fee6da
-     */
-    readonly performer: Elements.LinkedItemsElement<Person>;
-    /**
-     * URL Slug
-     *
-     * Type: url_slug
-     * Required: true
-     * Codename: url_slug
-     * Id: 8bc84f2b-d81d-441f-b28f-d35d260ee63e
-     */
-    readonly url_slug: Elements.UrlSlugElement;
-    /**
-     * Program
-     *
-     * Type: text
-     * Required: false
-     * Codename: program
-     * Id: b7cdc877-4aca-4a93-b13d-8f9df7933c84
-     * Guidelines: Please write the Composer in all caps, and then the piece after. COMPOSER: Piece
-     */
-    readonly program: Elements.TextElement;
-    /**
-     * Sponsors
-     *
-     * Type: modular_content
-     * Required: false
-     * Codename: sponsors
-     * Id: e06114bf-f5cc-4c67-9f0e-2b63652095e3
-     */
-    readonly sponsors: Elements.LinkedItemsElement<Sponsor>;
-  } & Metadata,
+  },
   "event"
 >;
 
 /**
- * Type representing all available element codenames for 🎫 Event
+ * Type representing all available element codenames for Event
  */
 export type EventElementCodenames =
   | "name"
   | "image"
   | "start_date"
   | "end_date"
-  | "description"
-  | "location"
-  | "accessibility"
   | "event_type"
-  | "location_tag"
-  | "performances"
-  | "performer"
-  | "metadata__title"
-  | "metadata__keywords"
-  | "metadata__description"
-  | "url_slug"
-  | "program"
-  | "sponsors";
+  | "event_topic"
+  | "description";
 
 /**
- * Type guard for 🎫 Event
+ * Type guard for Event
  *
  * Id: e97907ba-c5ae-53e6-bcb6-091bc89da3fa
  * Codename: event

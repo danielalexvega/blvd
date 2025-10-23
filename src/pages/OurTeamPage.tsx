@@ -217,10 +217,9 @@ const OurTeamPage: React.FC = () => {
               image: {
                 url: member.elements.image.value[0]?.url ?? "",
                 alt: member.elements.image.value[0]?.description
-                  ?? member.elements.first_name.value + " " + member.elements.last_name.value,
+                  ?? member.elements.first_name.value,
               },
               firstName: member.elements.first_name.value,
-              lastName: member.elements.last_name.value,
               position: member.elements.job_title.value,
               link: member.system.codename,
               itemId: member.system.id,

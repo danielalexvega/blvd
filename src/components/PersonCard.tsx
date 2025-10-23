@@ -4,14 +4,13 @@ import { createPreviewLink } from "../utils/link";
 const PersonCard: React.FC<{
   prefix?: string;
   firstName: string;
-  lastName: string;
   suffix?: string;
   jobTitle: string;
   image: {
     url?: string;
     alt: string;
   };
-}> = ({ prefix, firstName, lastName, suffix, jobTitle, image }) => {
+}> = ({ prefix, firstName, suffix, jobTitle, image }) => {
   const [searchParams] = useSearchParams();
   const isPreview = searchParams.get("preview") === "true";
 
@@ -20,11 +19,11 @@ const PersonCard: React.FC<{
       <img src={image.url} alt={image.alt} className="w-[95px] h-[95px] object-cover rounded-full" />
       <div className="flex flex-col gap-2 items-start max-w-[325px]">
         <NavLink
-          to={createPreviewLink(`/team/${firstName}-${lastName}`, isPreview)}
+          to={createPreviewLink(`/team/${firstName}`, isPreview)}
           className="text-heading-4 underline text-burgundy hover:text-azure"
         >
           {prefix && <span>{prefix}</span>}
-          {firstName} {lastName}
+          {firstName}
           {suffix && <span>, {suffix}</span>}
         </NavLink>
         <p className="text-small text-grey">

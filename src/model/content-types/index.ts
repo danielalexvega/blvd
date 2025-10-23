@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -16,17 +16,16 @@
 export * from "./article.ts";
 export * from "./blogPost.ts";
 export * from "./callToAction.ts";
-export * from "./callToActionCopy.ts";
 export * from "./disclaimer.ts";
 export * from "./event.ts";
+export * from "./factSectional.ts";
+export * from "./feature.ts";
 export * from "./heroButton.ts";
 export * from "./landingPage.ts";
-export * from "./landingPageCopy.ts";
-export type { Location as ContentLocation, LocationElementCodenames } from "./location.ts";
-export { isLocation as isContentLocation } from "./location.ts";
 export * from "./page.ts";
-export * from "./performance.ts";
+export * from "./pageCopy.ts";
+export * from "./percentageFact.ts";
 export * from "./person.ts";
-export * from "./series.ts";
-export * from "./sponsor.ts";
+export * from "./service.ts";
+export * from "./successStory.ts";
 export * from "./video.ts";

@@ -6,15 +6,15 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Pittsburgh Cultural Trust 🐧
+* Project: Boulevard
 * Environment: Production
-* Id: 0b696280-83e0-00a0-1a8d-d2963b6c0462
+* Id: 2a156019-e825-0006-1d2b-627d3d7f82f7
 * 
 * -------------------------------------------------------------------------------
 **/
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
-import type { BlogType } from "../taxonomies/index.ts";
+import type { BlogPostTags, IndustryTags } from "../taxonomies/index.ts";
 import type { CoreContentType } from "../system/index.ts";
 import type { Metadata } from "../content-type-snippets/index.ts";
 import type { Person } from "./index.ts";
@@ -56,32 +56,42 @@ export type BlogPost = CoreContentType<
      */
     readonly body: Elements.RichTextElement<CoreContentType>;
     /**
-     * Blog Type
+     * Summary
      *
-     * Type: taxonomy
+     * Type: text
      * Required: false
-     * Codename: blog_type
-     * Id: 9b65e14e-4efc-4818-ae1f-9ef341e0795d
+     * Codename: summary
+     * Id: a555e901-79d3-4585-8c7b-44c149da9803
+     * Guidelines: This should be a short paragraph that captures the main point of a blog post
      */
-    readonly blog_type: Elements.TaxonomyElement<BlogType, "blog_type">;
+    readonly summary: Elements.TextElement;
     /**
      * Author
      *
      * Type: modular_content
      * Required: false
      * Codename: author
-     * Id: 58ba0a81-41bc-4212-880b-216f311a03fd
+     * Id: d245b2bc-8e7c-4302-b87b-f112c819c9e6
      */
     readonly author: Elements.LinkedItemsElement<Person>;
     /**
-     * Photo Credits
+     * Blog Post Tags
      *
-     * Type: modular_content
+     * Type: taxonomy
      * Required: false
-     * Codename: photo_credits
-     * Id: dd328157-3082-46ba-a8aa-5020002ecce1
+     * Codename: blog_post_tags
+     * Id: 326aab4c-97eb-4556-afcc-bae0b6c949e9
      */
-    readonly photo_credits: Elements.LinkedItemsElement<Person>;
+    readonly blog_post_tags: Elements.TaxonomyElement<BlogPostTags, "blog_post_tags">;
+    /**
+     * Industry Tags
+     *
+     * Type: taxonomy
+     * Required: false
+     * Codename: industry_tags
+     * Id: 845537e5-cb33-4e2a-8231-c7d87c480eeb
+     */
+    readonly industry_tags: Elements.TaxonomyElement<IndustryTags, "industry_tags">;
     /**
      * URL slug
      *
@@ -102,9 +112,10 @@ export type BlogPostElementCodenames =
   | "title"
   | "image"
   | "body"
-  | "blog_type"
+  | "summary"
   | "author"
-  | "photo_credits"
+  | "blog_post_tags"
+  | "industry_tags"
   | "metadata__title"
   | "metadata__keywords"
   | "metadata__description"
