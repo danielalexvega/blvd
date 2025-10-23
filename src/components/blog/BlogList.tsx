@@ -1,7 +1,7 @@
 import React from "react";
 import BlogListItem from "./BlogListItem";
-import Divider from "../Divider";
-import PageSection from "../PageSection";
+// import Divider from "../Divider";
+// import PageSection from "../PageSection";
 
 // Updated to use summary string instead of rich text
 type Blog = Readonly<{
