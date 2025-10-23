@@ -4,9 +4,7 @@ import { createClient } from "../utils/client";
 import { useAppContext } from "../context/AppContext";
 import { BlogPost, LanguageCodenames } from "../model";
 import { DeliveryError } from "@kontent-ai/delivery-sdk";
-import { PortableText } from "@portabletext/react";
-import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
-import { defaultPortableRichTextResolvers } from "../utils/richtext";
+import PageContent from "../components/PageContent";
 import { IRefreshMessageData, IRefreshMessageMetadata, IUpdateMessageData, applyUpdateOnItemAndLoadLinkedItems } from "@kontent-ai/smart-link";
 import { useCustomRefresh, useLivePreview } from "../context/SmartLinkContext";
 import {
@@ -31,6 +29,7 @@ const BlogDetail: React.FC = () => {
         .type("blog_post")
         .equalsFilter("elements.url_slug", slug ?? "")
         .languageParameter((lang ?? "default") as LanguageCodenames)
+        .depthParameter(3)
         .toPromise()
         .then((res) => res.data.items[0])
         .catch((err) => {
@@ -155,12 +154,11 @@ const BlogDetail: React.FC = () => {
       </div>
 
       {/* Content Section */}
-      <div className="rich-text-body max-w-4xl mx-auto flex flex-col px-4 mr-[15%]"
-        {...createItemSmartLink(blogPost.system.id)}
-        {...createElementSmartLink("body")}>
-        <PortableText
-          value={transformToPortableText(blogPost.elements.body?.value)}
-          components={defaultPortableRichTextResolvers}
+      <div className="max-w-4xl mx-auto flex flex-col px-4 mr-[15%]">
+        <PageContent 
+          body={blogPost.elements.body!} 
+          itemId={blogPost.system.id} 
+          elementName="body" 
         />
       </div>
     </div>
