@@ -138,6 +138,7 @@ export type ElementCodenames =
   | "publish_date"
   | "related_articles"
   | "start_date"
+  | "style"
   | "subheadline"
   | "subpages"
   | "summary"

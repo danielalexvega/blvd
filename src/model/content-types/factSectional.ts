@@ -53,6 +53,15 @@ export type FactSectional = CoreContentType<
      * Id: 76c39870-f7b5-445b-8fd4-5b0478ad02a1
      */
     readonly disclaimer: Elements.TextElement;
+    /**
+     * Style
+     *
+     * Type: multiple_choice
+     * Required: false
+     * Codename: style
+     * Id: db3eec77-515d-458d-ba18-12218afff7d7
+     */
+    readonly style: Elements.MultipleChoiceElement<"black" | "gold">;
   },
   "fact_sectional"
 >;
@@ -60,7 +69,7 @@ export type FactSectional = CoreContentType<
 /**
  * Type representing all available element codenames for Fact Sectional
  */
-export type FactSectionalElementCodenames = "title" | "percentage_facts" | "disclaimer";
+export type FactSectionalElementCodenames = "title" | "percentage_facts" | "disclaimer" | "style";
 
 /**
  * Type guard for Fact Sectional

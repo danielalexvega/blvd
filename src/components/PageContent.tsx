@@ -1,11 +1,12 @@
 import { FC } from "react";
-import { CallToAction, Disclaimer, Video } from "../model";
+import { CallToAction, Disclaimer, Video, FactSectional } from "../model";
 import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
 import { defaultPortableRichTextResolvers } from "../utils/richtext";
 import { PortableText, PortableTextReactResolvers } from "@kontent-ai/rich-text-resolver/utils/react";
 import PromotionalDisclaimer from "./disclaimer/PromotionalDisclaimer";
 import InformationalDisclaimer from "./disclaimer/InformationalDisclaimer";
 import CallToActionComponent from "./CallToAction";
+import FactSectionalComponent from "./FactSectional";
 import { createElementSmartLink, createFixedAddSmartLink, createItemSmartLink } from "../utils/smartlink";
 import { Elements, IContentItem } from "@kontent-ai/delivery-sdk";
 import VideoComponent from "./Video";
@@ -64,6 +65,13 @@ const createPortableTextComponents = (
               imagePosition={cta.elements.image_position.value[0]?.codename ?? "left"}
               componentId={cta.system.id}
               componentName={cta.system.name}
+            />
+          );
+        case "fact_sectional":
+          const factSectional = item as FactSectional;
+          return (
+            <FactSectionalComponent
+              data={factSectional}
             />
           );
         default:

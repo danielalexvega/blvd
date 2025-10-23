@@ -15,9 +15,9 @@
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
 import type { BlogPostTags, IndustryTags } from "../taxonomies/index.ts";
+import type { CallToAction, FactSectional, Person } from "./index.ts";
 import type { CoreContentType } from "../system/index.ts";
 import type { Metadata } from "../content-type-snippets/index.ts";
-import type { Person } from "./index.ts";
 
 /**
  * ✍🏼 Blog Post
@@ -54,7 +54,7 @@ export type BlogPost = CoreContentType<
      * Codename: body
      * Id: e74bc043-0613-4554-8fb5-4d03a42c61a5
      */
-    readonly body: Elements.RichTextElement<CoreContentType>;
+    readonly body: Elements.RichTextElement<CallToAction | FactSectional>;
     /**
      * Summary
      *

@@ -6,8 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import BlogPage from "./pages/BlogPage.tsx";
 import Layout from "./components/Layout.tsx";
 import BlogDetail from "./pages/BlogDetail.tsx";
-import EventPage from "./pages/EventPage.tsx";
-
+import EventPage from "./pages/EventPage.tsx"; 
 import NotFound from "./components/NotFound.tsx";
 import ArticlesListingPage from "./pages/ArticlesListingPage.tsx";
 import ArticleDetailPage from "./pages/ArticleDetailPage.tsx";
@@ -19,6 +18,8 @@ import Page from "./pages/Page.tsx";
 import BannerDetail from "./pages/BannerDetail.tsx";
 import LinkedInPreviewPage from "./pages/LinkedInPreviewPage.tsx";
 import NewsletterPreviewPage from "./pages/NewsletterPreviewPage.tsx";
+
+import FactSectionalPage from "./pages/FactSectionalPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -65,9 +66,15 @@ const BaseRouting: RouteObject[] = [
     Component: Page,
   },
   {
+    path: "fact-sectional/:slug",
+    Component: FactSectionalPage,
+  },
+
+  {
     path: "*",
     Component: NotFound,
   },
+  
 ];
 
 const router = createBrowserRouter([
